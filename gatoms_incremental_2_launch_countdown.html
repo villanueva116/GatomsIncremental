@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gatoms Incremental 2 — Próximamente 17 de Noviembre 2026 | Roblox</title>
+  <meta name="description" content="¡Cuenta regresiva oficial para Gatoms Incremental 2 en Roblox! Lanzamiento el 17 de noviembre de 2026. ¿Estás listo para coleccionar gatoms?" />
+  <meta name="theme-color" content="#1B1130" />
+
+  <!-- Google Fonts: Fredoka (700 bold for Roblox FredokaOne look) & Nunito (500-800 rounded body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            plumNight: '#1B1130',
+            plumDark: '#251739',
+            plumLilac: '#604C6A',
+            panelPrimary: '#3E2C54',
+            cardElevated: '#563E72',
+            pastelLavender: '#C4A0FF',
+            pastelPink: '#FFA8D6',
+            pastelMint: '#80E8BA',
+            pastelGold: '#FFCD50',
+            textPrimary: '#F6EFFF',
+            textMuted: '#BFAEDB',
+          },
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            body: ['Nunito', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       CUSTOM CAT PASTEL ARCADE TOKENS & ROBLOX UI STYLING
+       ========================================================================== */
+    :root {
+      --bg-sky-start: #251739;
+      --bg-sky-end: #1B1130;
+      --panel-surface: #3E2C54;
+      --card-surface: #563E72;
+      --outline-dark: #251739;
+      --lavender: #C4A0FF;
+      --pink: #FFA8D6;
+      --mint: #80E8BA;
+      --gold: #FFCD50;
+      --text-main: #F6EFFF;
+      --text-muted: #BFAEDB;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at 50% 20%, var(--bg-sky-start) 0%, var(--bg-sky-end) 75%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    /* Crisp Roblox FredokaOne Outline & Shadow Effect */
+    .font-roblox {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-shadow:
+        -2px -2px 0 #251739,
+         2px -2px 0 #251739,
+        -2px  2px 0 #251739,
+         2px  2px 0 #251739,
+         0px  4px 0 #251739;
+    }
+
+    .font-roblox-lg {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow:
+        -3px -3px 0 #251739,
+         3px -3px 0 #251739,
+        -3px  3px 0 #251739,
+         3px  3px 0 #251739,
+        -3px  0px 0 #251739,
+         3px  0px 0 #251739,
+         0px -3px 0 #251739,
+         0px  6px 0 #251739;
+    }
+
+    .font-roblox-sm {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      text-shadow:
+        -1.5px -1.5px 0 #251739,
+         1.5px -1.5px 0 #251739,
+        -1.5px  1.5px 0 #251739,
+         1.5px  1.5px 0 #251739,
+         0px    2.5px 0 #251739;
+    }
+
+    /* Chunky Pastel Cards & Panels with 3px solid #251739 & bottom lip */
+    .pastel-panel {
+      background-color: #3E2C54;
+      border: 3px solid #251739;
+      box-shadow: 0 8px 0 #251739, 0 16px 32px rgba(0, 0, 0, 0.4);
+      border-radius: 26px;
+    }
+
+    .pastel-card {
+      background-color: #563E72;
+      border: 3px solid #251739;
+      box-shadow: 0 6px 0 #251739;
+      border-radius: 20px;
+    }
+
+    /* Subtle Cat Ear Silhouettes on Main Countdown Card */
+    .cat-ear-left,
+    .cat-ear-right {
+      position: absolute;
+      top: -26px;
+      width: 54px;
+      height: 44px;
+      background-color: #3E2C54;
+      border: 3px solid #251739;
+      z-index: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .cat-ear-left {
+      left: 36px;
+      border-radius: 16px 28px 0 0;
+      transform: rotate(-14deg);
+    }
+
+    .cat-ear-right {
+      right: 36px;
+      border-radius: 28px 16px 0 0;
+      transform: rotate(14deg);
+    }
+
+    .cat-ear-inner {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 22px;
+      background-color: #FFA8D6;
+      border-radius: 12px 12px 4px 4px;
+      opacity: 0.85;
+    }
+
+    .countdown-wrapper:hover .cat-ear-left {
+      transform: rotate(-20deg) translateY(-3px);
+    }
+
+    .countdown-wrapper:hover .cat-ear-right {
+      transform: rotate(20deg) translateY(-3px);
+    }
+
+    /* Digit flip / pulse animation */
+    .digit-num {
+      font-variant-numeric: tabular-nums;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+    }
+
+    .digit-pop {
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex flex-col items-center justify-center px-4 py-10 selection:bg-pastelPink selection:text-plumDark">
+
+  <!-- ==========================================================================
+       BACKGROUND SPARKLE & CONFETTI CANVAS (Low-opacity ambient + Launch Confetti)
+       ========================================================================== -->
+  <canvas id="bgCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- ==========================================================================
+       CENTERED PRODUCTION LAUNCH COUNTDOWN
+       ========================================================================== -->
+  <main class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center">
+
+    <!-- Main Game Title ("GATOMS INCREMENTAL 2") -->
+    <h1 class="text-center font-roblox-lg text-4xl sm:text-6xl md:text-7xl text-pastelPink leading-none tracking-tight select-none mb-4">
+      GATOMS <span class="text-pastelGold">INCREMENTAL 2</span>
+    </h1>
+
+    <!-- Highlighted Launch Date Banner -->
+    <div class="mb-4 inline-flex items-center gap-2.5 bg-[#3E2C54]/80 px-5 py-2 rounded-full border-2 border-[#4A3566] shadow-[0_4px_0_#251739]">
+      <span class="text-sm sm:text-base opacity-80">🐾</span>
+      <span class="font-roblox-sm text-sm sm:text-lg md:text-xl text-pastelGold tracking-wide uppercase">
+        ¡PRÓXIMAMENTE 17 DE NOVIEMBRE 2026!
+      </span>
+      <span class="text-sm sm:text-base opacity-80">🐾</span>
+    </div>
+
+    <!-- Subtitle Question -->
+    <p class="max-w-xl text-center text-[#E5D7FA] font-extrabold text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed">
+      ¿Estás listo para coleccionar gatoms?
+    </p>
+
+    <!-- ========================================================================
+         COUNTDOWN TIMER CARD (CENTERPIECE WITH CAT EARS)
+         ======================================================================== -->
+    <section aria-label="Cuenta regresiva de lanzamiento" class="countdown-wrapper relative w-full max-w-[760px]">
+      <!-- Subtle Cat-Ear Silhouettes peeking from top corners -->
+      <div class="cat-ear-left" aria-hidden="true"><div class="cat-ear-inner"></div></div>
+      <div class="cat-ear-right" aria-hidden="true"><div class="cat-ear-inner"></div></div>
+
+      <!-- Main Framed Panel (#3E2C54 with 3px solid #251739 border) -->
+      <div class="pastel-panel relative z-10 p-5 sm:p-8">
+
+        <!-- Card Header Bar -->
+        <div class="flex items-center justify-between gap-2 pb-4 mb-6 border-b-2 border-[#2B1D3D]">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3.5 h-3.5 rounded-full bg-pastelPink border-2 border-plumDark animate-pulse"></span>
+            <span class="font-roblox-sm text-sm sm:text-base text-pastelLavender uppercase tracking-wider">
+              CUENTA REGRESIVA OFICIAL DE LANZAMIENTO
+            </span>
+          </div>
+        </div>
+
+        <!-- STATE A: LIVE COUNTDOWN DIGITS (4 Chunky #563E72 Digit Cards) -->
+        <div id="countdownDigitsView" class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
+          <!-- DAYS -->
+          <div class="pastel-card p-4 sm:p-5 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-1.5 bg-pastelGold"></div>
+            <span id="daysNum" class="digit-num font-roblox text-4xl sm:text-5xl md:text-6xl text-pastelGold leading-none my-1.5">
+              00
+            </span>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-textMuted mt-1">
+              DÍAS
+            </span>
+          </div>
+
+          <!-- HOURS -->
+          <div class="pastel-card p-4 sm:p-5 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-1.5 bg-pastelPink"></div>
+            <span id="hoursNum" class="digit-num font-roblox text-4xl sm:text-5xl md:text-6xl text-textPrimary leading-none my-1.5">
+              00
+            </span>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-textMuted mt-1">
+              HORAS
+            </span>
+          </div>
+
+          <!-- MINUTES -->
+          <div class="pastel-card p-4 sm:p-5 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-1.5 bg-pastelLavender"></div>
+            <span id="minutesNum" class="digit-num font-roblox text-4xl sm:text-5xl md:text-6xl text-textPrimary leading-none my-1.5">
+              00
+            </span>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-textMuted mt-1">
+              MINUTOS
+            </span>
+          </div>
+
+          <!-- SECONDS -->
+          <div class="pastel-card p-4 sm:p-5 flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-1.5 bg-pastelMint"></div>
+            <span id="secondsNum" class="digit-num font-roblox text-4xl sm:text-5xl md:text-6xl text-pastelGold leading-none my-1.5">
+              00
+            </span>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-textMuted mt-1">
+              SEGUNDOS
+            </span>
+          </div>
+        </div>
+
+        <!-- STATE B: LAUNCHED VIEW (Automatically activates when countdown reaches 00:00:00:00) -->
+        <div id="playNowView" class="hidden py-6 px-4 text-center flex-col items-center justify-center">
+          <div class="inline-flex items-center gap-2 bg-pastelGold text-plumDark font-extrabold text-xs sm:text-sm px-4 py-1 rounded-full border-2 border-plumDark mb-3 uppercase">
+            <span>✨</span>
+            <span>¡DISPONIBLE AHORA EN ROBLOX!</span>
+            <span>✨</span>
+          </div>
+          <h2 class="font-roblox-lg text-4xl sm:text-6xl text-pastelMint mb-2">
+            ¡JUGAR AHORA!
+          </h2>
+          <p class="text-textPrimary font-bold text-base sm:text-lg max-w-lg mx-auto">
+            ¡Gatoms Incremental 2 ya está oficialmente abierto!
+          </p>
+        </div>
+
+        <!-- Local Timezone Detection Note -->
+        <div class="mt-6 pt-4 border-t-2 border-[#2B1D3D] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-textMuted font-bold">
+          <div class="flex items-center gap-2 text-center sm:text-left">
+            <span>🕒</span>
+            <span id="localTimeNote">Lanzamiento en tu hora local: martes, 17 de noviembre de 2026, 12:00 GMT-6</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 bg-[#2A1B3D] px-3.5 py-1.5 rounded-full text-pastelLavender border-2 border-plumDark shrink-0">
+            <span>🎯</span>
+            <span>Meta: 17 Nov 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: ACCURATE COUNTDOWN & AMBIENT PASTEL PARTICLES
+       ========================================================================== -->
+  <script>
+    // Target release date: November 17, 2026 at 18:00:00 UTC (12:00 GMT-6)
+    const RELEASE_DATE_ISO = '2026-11-17T18:00:00Z';
+    const targetTimestamp = Date.parse(RELEASE_DATE_ISO);
+    let prevSeconds = -1;
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = Math.max(0, targetTimestamp - now);
+
+      const daysEl = document.getElementById('daysNum');
+      const hoursEl = document.getElementById('hoursNum');
+      const minutesEl = document.getElementById('minutesNum');
+      const secondsEl = document.getElementById('secondsNum');
+      const digitsView = document.getElementById('countdownDigitsView');
+      const playNowView = document.getElementById('playNowView');
+
+      if (diff <= 0) {
+        if (!digitsView.classList.contains('hidden')) {
+          digitsView.classList.add('hidden');
+          playNowView.classList.remove('hidden');
+          playNowView.classList.add('flex');
+          spawnConfettiBurst(90);
+        }
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+
+      if (seconds !== prevSeconds) {
+        prevSeconds = seconds;
+        secondsEl.classList.add('digit-pop');
+        setTimeout(() => secondsEl.classList.remove('digit-pop'), 160);
+      }
+    }
+
+    function updateLocalTimezoneDisplay() {
+      const noteEl = document.getElementById('localTimeNote');
+      try {
+        const releaseDate = new Date(targetTimestamp);
+        const formatted = new Intl.DateTimeFormat('es-MX', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+          timeZoneName: 'short'
+        }).format(releaseDate);
+
+        noteEl.textContent = 'Lanzamiento en tu hora local: ' + formatted;
+      } catch (e) {
+        noteEl.textContent = 'Lanzamiento en tu hora local: martes, 17 de noviembre de 2026, 12:00 GMT-6';
+      }
+    }
+
+    // Ambient Pastel Particles & Confetti Canvas
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let ambientParticles = [];
+    let confettiParticles = [];
+
+    const PASTEL_COLORS = ['#FFA8D6', '#C4A0FF', '#80E8BA', '#FFCD50', '#F6EFFF'];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function initAmbientParticles() {
+      ambientParticles = [];
+      const count = Math.min(30, Math.floor(window.innerWidth / 45));
+      for (let i = 0; i < count; i++) {
+        ambientParticles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: 2 + Math.random() * 3.5,
+          speedY: -0.15 - Math.random() * 0.3,
+          speedX: (Math.random() - 0.5) * 0.2,
+          alpha: 0.12 + Math.random() * 0.28,
+          color: PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)]
+        });
+      }
+    }
+
+    function spawnConfettiBurst(amount = 70) {
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height * 0.45;
+      for (let i = 0; i < amount; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 3 + Math.random() * 9;
+        confettiParticles.push({
+          x: centerX,
+          y: centerY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 3,
+          size: 6 + Math.random() * 6,
+          color: PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 12,
+          alpha: 1
+        });
+      }
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let p of ambientParticles) {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        if (p.y < -10) p.y = canvas.height + 10;
+        if (p.x < -10) p.x = canvas.width + 10;
+        if (p.x > canvas.width + 10) p.x = -10;
+
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      for (let i = confettiParticles.length - 1; i >= 0; i--) {
+        const c = confettiParticles[i];
+        c.x += c.vx;
+        c.y += c.vy;
+        c.vy += 0.18;
+        c.vx *= 0.99;
+        c.rotation += c.rotSpeed;
+        c.alpha -= 0.008;
+
+        if (c.alpha <= 0 || c.y > canvas.height + 30) {
+          confettiParticles.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, c.alpha);
+        ctx.translate(c.x, c.y);
+        ctx.rotate((c.rotation * Math.PI) / 180);
+        ctx.fillStyle = c.color;
+        ctx.strokeStyle = '#251739';
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(-c.size / 2, -c.size / 2, c.size, c.size * 0.7);
+        ctx.strokeRect(-c.size / 2, -c.size / 2, c.size, c.size * 0.7);
+        ctx.restore();
+      }
+
+      requestAnimationFrame(animateCanvas);
+    }
+
+    window.onload = function () {
+      resizeCanvas();
+      initAmbientParticles();
+      animateCanvas();
+      updateLocalTimezoneDisplay();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    };
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initAmbientParticles();
+    });
+  </script>
+</body>
+</html>
